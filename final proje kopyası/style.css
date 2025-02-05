@@ -1,0 +1,145 @@
+/* Genel Sayfa Düzeni */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tablet ve Daha Küçük Ekranlar için */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: row; /* Menü elemanlarını dikey hizala */
+        align-items: left;
+        padding: 10px;
+    }
+
+    .logo {
+        position: static; /* Logoyu sabit pozisyondan çıkar */
+        transform: none;
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        flex-direction: column; /* Menü elemanlarını alt alta diz */
+        gap: 10px; /* Elemanlar arasında boşluk bırak */
+    }
+
+    h1 {
+        font-size: 40px; /* Başlık boyutunu küçült */
+        margin-top: 200px; /* Üst boşluğu ayarla */
+    }
+
+    .discover-btn {
+        font-size: 14px; /* Buton boyutunu küçült */
+        padding: 8px 16px;
+    }
+}
+
+/* Arka Plan Videosu */
+.video-background {
+    position: fixed;   /* Sabit yaparak sayfanın tamamına yayılmasını sağlıyoruz */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;       /* Video, içeriklerin arkasında kalacak şekilde */
+}
+
+video {
+    object-fit: cover; /* Videonun ekranı kaplamasını sağlar */
+    width: 100%;
+    height: 100%;
+}
+
+/* Menü Ayarları */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    position: absolute; /* Logoyu tam ortalamak için */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    height: 80px; /* Logonun boyutunu artır */
+    width: auto;  /* Oranını korur */
+}
+
+/* Menü Listesi */
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Yumuşak geçiş efekti */
+}
+
+.menu a:hover {
+    color: #9c0505; /* Üzerine gelindiğinde renk değişimi */
+}
+
+/* İçerik ve Buton */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+
+h1 {
+    font-size: 60px;
+    color: #fefefe;
+    margin-top: 300px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0);
+}
+
+.discover-btn {
+    position: absolute; /* Konumlandırma */
+    top: 50%; /* Üstten %50 mesafe */
+    left: 50%; /* Soldan %50 mesafe */
+    transform: translate(-50%, -50%); /* Elemanı tam ortalamak için */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #9c0505;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.discover-btn:hover {
+    background-color: rgba(221, 221, 221, 0.5);
+}
+
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .footer-contact {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
