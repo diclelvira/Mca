@@ -1,0 +1,188 @@
+/* Genel Sayfa Düzeni */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tablet ve Daha Küçük Ekranlar için */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: row; /* Menü elemanlarını dikey hizala */
+        align-items: left;
+        padding: 10px;
+    }
+
+    .logo {
+        position: static; /* Logoyu sabit pozisyondan çıkar */
+        transform: none;
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        flex-direction: column; /* Menü elemanlarını alt alta diz */
+        gap: 10px; /* Elemanlar arasında boşluk bırak */
+    }
+
+    h1 {
+        font-size: 40px; /* Başlık boyutunu küçült */
+        margin-top: 200px; /* Üst boşluğu ayarla */
+    }
+
+    .discover-btn {
+        font-size: 14px; /* Buton boyutunu küçült */
+        padding: 8px 16px;
+    }
+}
+/* Menü Ayarları */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    position: absolute; /* Logoyu tam ortalamak için */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    height: 80px; /* Logonun boyutunu artır */
+    width: auto;  /* Oranını korur */
+}
+
+/* Menü Listesi */
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Yumuşak geçiş efekti */
+}
+
+.menu a:hover {
+    color: #9c0505; /* Üzerine gelindiğinde renk değişimi */
+}
+
+/* Hakkımızda Bölümü */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.text h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.text p {
+    line-height: 1.6;
+    margin-bottom: 50px;
+   
+}
+p {
+    font-size: 20px; /* Yazı boyutu 16 piksel */
+}
+
+.image {
+    flex: 1;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* Footer Genel Ayarları */
+.footer {
+    background: linear-gradient(45deg, #000000, #290404);
+    color: #fff;
+    padding: 50px 10px;
+    font-family: 'Arial', sans-serif;
+    border-top: 3px solid #9c0505;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Footer İçeriği */
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-contact p {
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+.footer-contact img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-contact a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.footer-contact a:hover {
+    color: #9c0505;
+}
+
+.footer-contact img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 5px #fafafa);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .footer-contact {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
