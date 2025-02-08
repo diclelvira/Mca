@@ -3,8 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 18px;
 }
-
 
 /* Menü Ayarları */
 .menu-container {
@@ -62,49 +62,60 @@
     color: white;
     cursor: pointer;
 }
-.menu-text{
+
+.menu-text {
     margin-left: 8px;
     font-size: 18px;
 }
 
 /* Hakkımızda Bölümü */
-/* Genel Hakkımızda Bölümü */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 100px 20px;
-    max-width: 1200px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    gap: 30px; /* Elemanlar arasında boşluk */
-}
-
-/* Metin Alanı */
-.text {
-    flex: 1;
-    padding: 20px;
-    max-width: 600px;
-    text-align: justify;
-}
-
-/* Resim Alanı */
-.image {
-    flex: 1;
-    text-align: center;
-}
-
-.image img {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    gap: 30px;
     width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-}
-/* Basic Styles */
-body {
-    font-family: Arial, sans-serif;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
 }
 
+.container:hover {
+    transform: translateY(-10px);
+}
+
+/* Hakkımızda Bölümü */
+.text {
+    font-size: 40px; /* Yazıyı büyütüyoruz */
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.text:first-of-type {
+    font-weight: 600;
+    font-size: 40px; /* Başlık kısmı için daha büyük yazı */
+    color: #222;
+}
+
+/* Fotoğrafların Küçültülmesi */
+.photo {
+    width: 90%;  /* Fotoğraf genişliğini küçültüyoruz */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+}
 
 /* Footer Genel Ayarları */
 .footer {
@@ -160,54 +171,56 @@ body {
 }
 
 /* 📌 Responsive Tasarım */
-    /* Logo Ayarları */
-   /* Mobilde Logo ve Menü Ortalanması */
-   @media (max-width: 768px) {
-       .menu-container {
-           flex-direction: column; /* Menü ve logo dikey sıraya yerleşecek */
-           justify-content: flex-start; /* Menü ve logo yukarıya hizalanacak */
-           align-items: center; /* Hem yatayda hem dikeyde ortalama */
-           padding: 10px;
-       }
-   
-       .logo {
-           margin-top: 1px; /* Burada logonun konumunu yukarıda ayarlayabilirsiniz */
-       }
-   
-       .logo img {
-           height: 60px; /* Mobilde logo boyutunu küçült */
-       }
-   
-       /* Menü Toggle Butonu */
-       .menu-toggle {
-           display: flex;
-           font-size: 20px;
-           gap: 10px;
-           color: white;
-           cursor: pointer;
-           align-items: center;
-           justify-content: flex-start;
-           width: 100%;
-           padding: 10px;
-       }
-   
-       /* Mobilde Menü Düzeni */
-       .menu {
-           flex-direction: column;
-           text-align: center;
-           gap: 10px;
-           display: none;
-       }
-   
-       .menu.show {
-           display: flex;
-       }
-   
-       /* Menü elemanlarını ortalamak */
-       .menu li {
-           margin: 10px 0;
-       }
-       .container {
+
+/* Logo ve Menü Mobilde Ortalanması */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column; /* Menü ve logo dikey sıraya yerleşecek */
+        justify-content: flex-start; /* Menü ve logo yukarıya hizalanacak */
+        align-items: center; /* Hem yatayda hem dikeyde ortalama */
+        padding: 10px;
+    }
+
+    .logo {
+        margin-top: 1px; /* Logonun konumunu yukarıda ayarlayabilirsiniz */
+    }
+
+    .logo img {
+        height: 60px; /* Mobilde logo boyutunu küçült */
+    }
+
+    /* Menü Toggle Butonu */
+    .menu-toggle {
+        display: flex;
+        font-size: 20px;
+        gap: 10px;
+        color: white;
+        cursor: pointer;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Mobilde Menü Düzeni */
+    .menu {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        display: none;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    /* Menü elemanlarını ortalamak */
+    .menu li {
+        margin: 10px 0;
+    }
+
+    /* Hakkımızda Bölümü Mobil Düzeni */
+    .container {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr auto;
@@ -220,14 +233,14 @@ body {
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(105, 0, 0, 0.78);
     }
-    
+
     .photo {
         width: 100%;
         height: auto;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(100, 17, 17, 0.182);
     }
-    
+
     .text {
         font-size: 1.1rem;
         line-height: 1.6;
@@ -236,5 +249,13 @@ body {
         margin: 0 auto;
         text-align: center;
     }
-    
-   }
+}
+
+/* PC Ekranı Düzeni - Container ekranı kaplasın */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 100%; /* Container'ı ekranın tamamını kaplayacak şekilde ayarla */
+        width: 100%; /* Full genişlik */
+        padding: 40px;
+    }
+}
