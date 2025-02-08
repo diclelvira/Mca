@@ -5,48 +5,18 @@
     box-sizing: border-box;
 }
 
-/* Tablet ve Daha Küçük Ekranlar için */
-@media (max-width: 768px) {
-    .menu-container {
-        flex-direction: row; /* Menü elemanlarını dikey hizala */
-        align-items: left;
-        padding: 10px;
-    }
-
-    .logo {
-        position: static; /* Logoyu sabit pozisyondan çıkar */
-        transform: none;
-        margin-bottom: 10px;
-    }
-
-    .menu {
-        flex-direction: column; /* Menü elemanlarını alt alta diz */
-        gap: 10px; /* Elemanlar arasında boşluk bırak */
-    }
-
-    h1 {
-        font-size: 40px; /* Başlık boyutunu küçült */
-        margin-top: 200px; /* Üst boşluğu ayarla */
-    }
-
-    .discover-btn {
-        font-size: 14px; /* Buton boyutunu küçült */
-        padding: 8px 16px;
-    }
-}
-
 /* Arka Plan Videosu */
 .video-background {
-    position: fixed;   /* Sabit yaparak sayfanın tamamına yayılmasını sağlıyoruz */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;       /* Video, içeriklerin arkasında kalacak şekilde */
+    z-index: -1;
 }
 
 video {
-    object-fit: cover; /* Videonun ekranı kaplamasını sağlar */
+    object-fit: cover;
     width: 100%;
     height: 100%;
 }
@@ -63,21 +33,21 @@ video {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .logo {
-    position: absolute; /* Logoyu tam ortalamak için */
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .logo img {
-    height: 80px; /* Logonun boyutunu artır */
-    width: auto;  /* Oranını korur */
+    height: 80px;
+    width: auto;
 }
 
 /* Menü Listesi */
-
 .menu {
     list-style: none;
     margin: 0;
@@ -93,11 +63,23 @@ video {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    transition: color 0.3s ease; /* Yumuşak geçiş efekti */
+    transition: color 0.3s ease;
 }
 
 .menu a:hover {
-    color: #9c0505; /* Üzerine gelindiğinde renk değişimi */
+    color: #9c0505;
+}
+
+/* Mobil Menü Aç-Kapat */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.menu-text{
+    margin-left: 8px;
+    font-size: 18px;
 }
 
 /* İçerik ve Buton */
@@ -105,22 +87,19 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
 }
 
 h1 {
     font-size: 60px;
     color: #fefefe;
-    margin-top: 300px;
     margin-bottom: 20px;
     text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(0, 0, 0);
 }
 
 .discover-btn {
-    position: absolute; /* Konumlandırma */
-    top: 50%; /* Üstten %50 mesafe */
-    left: 50%; /* Soldan %50 mesafe */
-    transform: translate(-50%, -50%); /* Elemanı tam ortalamak için */
     padding: 10px 20px;
     font-size: 16px;
     color: #ffffff;
@@ -135,11 +114,101 @@ h1 {
     background-color: rgba(221, 221, 221, 0.5);
 }
 
+/* Footer */
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #000;
+    color: white;
+}
 
-/* Mobil Uyumluluk */
+/* 📌 Responsive Tasarım */
+
+ /* Logo Ayarları */
+/* Mobilde Logo ve Menü Ortalanması */
 @media (max-width: 768px) {
-    .footer-contact {
+    .menu-container {
+        flex-direction: column; /* Menü ve logo dikey sıraya yerleşecek */
+        justify-content: flex-start; /* Menü ve logo yukarıya hizalanacak */
+        align-items: center; /* Hem yatayda hem dikeyde ortalama */
+        padding: 10px;
+    }
+
+    .logo {
+        margin-top: 1px; /* Burada logonun konumunu yukarıda ayarlayabilirsiniz */
+    }
+
+    .logo img {
+        height: 60px; /* Mobilde logo boyutunu küçült */
+    }
+
+   /* Menü Toggle Butonu (Mobil) */
+.menu-toggle {
+    display: flex;
+    align-items: center; /* Dikeyde hizalama */
+    justify-content: flex-start; /* Solda hizalama */
+    font-size: 20px; /* MENÜ yazısının varsayılan boyutu */
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    gap: 10px; /* Simge ve yazı arasına boşluk ekler */
+}
+
+    /* Mobilde Menü Düzeni */
+    .menu {
         flex-direction: column;
-        gap: 15px;
+        text-align: center;
+        gap: 10px;
+        display: none;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    /* Menü elemanlarını ortalamak */
+    .menu li {
+        margin: 10px 0;
+    }
+}
+    /* Başlık ve Buton */
+    h1 {
+        font-size: 30px;
+        margin-top: 120px;
+    }
+
+    .discover-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+/* Arka Plan Videosu */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover; /* Videonun tam ekranı kaplamasını sağlar */
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+/* Mobilde Arka Plan Resmi */
+@media (max-width: 768px) {
+    .video-background {
+        display: none; /* Mobilde video gizlensin */
+    }
+
+    body {
+        background-image: url('arkaplanresim.jpg'); /* Mobilde gösterilecek arka plan resmi */
+        background-size: cover; /* Resmin sayfayı kaplamasını sağlar */
+        background-position: center center; /* Resmi ortalar */
     }
 }
