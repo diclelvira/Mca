@@ -40,12 +40,12 @@ body::after {
     left: 0;
     width: 100%;
     background-color: #000000;
-    padding: 20px;
+    padding: 20px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+    z-index: 1000;
 }
 
 .logo {
@@ -59,10 +59,16 @@ body::after {
     width: auto;
 }
 
+/* Menü Listesi */
 .menu {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 20px;
+}
+
+.menu li {
+    margin: 0 20px;
 }
 
 .menu a {
@@ -75,6 +81,19 @@ body::after {
 .menu a:hover {
     color: #9c0505;
 }
+
+/* Mobil Menü Aç-Kapat */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.menu-text{
+    margin-left: 8px;
+    font-size: 18px;
+}
+
 
 /* İçerik Ayarları */
 .content {
@@ -170,21 +189,60 @@ button:hover {
     background-color: #b10b0b;
 }
 
-/* Responsive Tasarım */
-@media (max-width: 768px) {
+/* 📌 Responsive Tasarım */
+    /* Logo Ayarları */
+   /* Mobilde Logo ve Menü Ortalanması */
+   @media (max-width: 768px) {
+    body {
+        background: linear-gradient(-45deg, #830004, #ffffff, #800000, #000000);
+        background-size: 400% 400%;
+        animation: gradientBG 6s ease infinite;
+    }
     .menu-container {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column; /* Menü ve logo dikey sıraya yerleşecek */
+        justify-content: flex-start; /* Menü ve logo yukarıya hizalanacak */
+        align-items: center; /* Hem yatayda hem dikeyde ortalama */
+        padding: 10px;
     }
 
-    .menu {
-        flex-direction: column;
-        gap: 10px;
+    .logo {
+        margin-top: 1px; /* Burada logonun konumunu yukarıda ayarlayabilirsiniz */
     }
 
     .logo img {
-        height: 60px;
+        height: 60px; /* Mobilde logo boyutunu küçült */
     }
+
+    /* Menü Toggle Butonu */
+    .menu-toggle {
+        display: flex;
+        font-size: 20px;
+        gap: 10px;
+        color: white;
+        cursor: pointer;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Mobilde Menü Düzeni */
+    .menu {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        display: none;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    /* Menü elemanlarını ortalamak */
+    .menu li {
+        margin: 10px 0;
+    }
+
 
     .form-wrapper {
         padding: 20px;
@@ -194,6 +252,20 @@ button:hover {
     h2 {
         font-size: 20px;
     }
+    /* Form Alanı */
+    .form-wrapper {
+        max-width: 350px;
+        padding: 20px;
+    }
+    button:hover {
+        background: linear-gradient(45deg, #9c0505, #750303);
+    }
+    /* Odaklanınca efekt */
+input:focus, textarea:focus {
+    border-color: #9c0505;
+    outline: none;
+    box-shadow: 0 0 10px rgba(92, 107, 192, 0.5);
+}
 }
 
 @media (max-width: 480px) {
@@ -221,4 +293,5 @@ button:hover {
     100% {
         transform: rotate(360deg);
     }
+    
 }
