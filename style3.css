@@ -5,35 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Tablet ve Daha Küçük Ekranlar için */
-@media (max-width: 768px) {
-    .menu-container {
-        flex-direction: row; /* Menü elemanlarını dikey hizala */
-        align-items: left;
-        padding: 10px;
-    }
 
-    .logo {
-        position: static; /* Logoyu sabit pozisyondan çıkar */
-        transform: none;
-        margin-bottom: 10px;
-    }
-
-    .menu {
-        flex-direction: column; /* Menü elemanlarını alt alta diz */
-        gap: 10px; /* Elemanlar arasında boşluk bırak */
-    }
-
-    h1 {
-        font-size: 40px; /* Başlık boyutunu küçült */
-        margin-top: 200px; /* Üst boşluğu ayarla */
-    }
-
-    .discover-btn {
-        font-size: 14px; /* Buton boyutunu küçült */
-        padding: 8px 16px;
-    }
-}
 /* Menü Ayarları */
 .menu-container {
     position: fixed;
@@ -46,21 +18,21 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .logo {
-    position: absolute; /* Logoyu tam ortalamak için */
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .logo img {
-    height: 80px; /* Logonun boyutunu artır */
-    width: auto;  /* Oranını korur */
+    height: 80px;
+    width: auto;
 }
 
 /* Menü Listesi */
-
 .menu {
     list-style: none;
     margin: 0;
@@ -76,47 +48,55 @@
     text-decoration: none;
     color: white;
     font-size: 16px;
-    transition: color 0.3s ease; /* Yumuşak geçiş efekti */
+    transition: color 0.3s ease;
 }
 
 .menu a:hover {
-    color: #9c0505; /* Üzerine gelindiğinde renk değişimi */
+    color: #9c0505;
+}
+
+/* Mobil Menü Aç-Kapat */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.menu-text{
+    margin-left: 8px;
+    font-size: 18px;
 }
 
 /* Hakkımızda Bölümü */
+/* Genel Hakkımızda Bölümü */
 .container {
     display: flex;
     flex-wrap: wrap;
     padding: 100px 20px;
     max-width: 1200px;
     margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Elemanlar arasında boşluk */
 }
 
+/* Metin Alanı */
 .text {
     flex: 1;
-    padding-right: 20px;
+    padding: 20px;
+    max-width: 600px;
+    text-align: justify;
 }
 
-.text h1 {
-    font-size: 45px;
-    margin-bottom: 20px;
-}
-
-.text p {
-    line-height: 1.6;
-    margin-bottom: 50px;
-   
-}
-p {
-    font-size: 20px; /* Yazı boyutu 16 piksel */
-}
-
+/* Resim Alanı */
 .image {
     flex: 1;
+    text-align: center;
 }
 
 .image img {
     width: 100%;
+    max-width: 500px;
     height: auto;
     border-radius: 8px;
 }
@@ -179,10 +159,82 @@ body {
     filter: drop-shadow(0 0 5px #fafafa);
 }
 
-/* Mobil Uyumluluk */
-@media (max-width: 768px) {
-    .footer-contact {
-        flex-direction: column;
-        gap: 15px;
+/* 📌 Responsive Tasarım */
+    /* Logo Ayarları */
+   /* Mobilde Logo ve Menü Ortalanması */
+   @media (max-width: 768px) {
+       .menu-container {
+           flex-direction: column; /* Menü ve logo dikey sıraya yerleşecek */
+           justify-content: flex-start; /* Menü ve logo yukarıya hizalanacak */
+           align-items: center; /* Hem yatayda hem dikeyde ortalama */
+           padding: 10px;
+       }
+   
+       .logo {
+           margin-top: 1px; /* Burada logonun konumunu yukarıda ayarlayabilirsiniz */
+       }
+   
+       .logo img {
+           height: 60px; /* Mobilde logo boyutunu küçült */
+       }
+   
+       /* Menü Toggle Butonu */
+       .menu-toggle {
+           display: flex;
+           font-size: 20px;
+           gap: 10px;
+           color: white;
+           cursor: pointer;
+           align-items: center;
+           justify-content: flex-start;
+           width: 100%;
+           padding: 10px;
+       }
+   
+       /* Mobilde Menü Düzeni */
+       .menu {
+           flex-direction: column;
+           text-align: center;
+           gap: 10px;
+           display: none;
+       }
+   
+       .menu.show {
+           display: flex;
+       }
+   
+       /* Menü elemanlarını ortalamak */
+       .menu li {
+           margin: 10px 0;
+       }
+       .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+        justify-items: center;
+        gap: 20px;
+        width: 100%;
+        max-width: 480px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(105, 0, 0, 0.78);
     }
-}
+    
+    .photo {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(100, 17, 17, 0.182);
+    }
+    
+    .text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+        max-width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+   }
