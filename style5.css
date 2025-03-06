@@ -5,7 +5,6 @@
     box-sizing: border-box;
 }
 
-
 /* Menü Ayarları */
 .menu-container {
     position: fixed;
@@ -13,7 +12,7 @@
     left: 0;
     width: 100%;
     background-color: #000000;
-    padding: 20px 20px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,41 +61,50 @@
     color: white;
     cursor: pointer;
 }
-.menu-text{
+
+.menu-text {
     margin-left: 8px;
     font-size: 18px;
 }
+
+/* Sayfa İçeriği */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
     background-color: white;
     color: rgb(90, 15, 15);
 }
+
 .container {
     text-align: center;
 }
+
 h1 {
     font-size: 3rem;
     padding-top: 100px;
     color: #9c0505;
     text-shadow: 2px 2px 4px rgba(85, 5, 5, 0.3);
-    gap: 10px;
 }
+
 p {
     font-size: 1.2rem;
     margin: 1rem 0;
 }
+
 .address {
     font-size: 1.5rem;
     font-weight: bold;
 }
-.map {
-    margin-top: 1.5rem;
+
+/* Google Harita */
+.map iframe {
+    width: 175vh;
+    height: 60vh;  /* Yüksekliği ekran yüksekliğine göre ayarlanır */
+    border: 0;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -116,33 +124,9 @@ p {
     animation: fadeIn 3s ease-in-out;
 }
 
-
-
-
 /* Sayfanın İçeriği */
 main {
-    flex: 1; /* Footer'ı aşağı itmek için ana içerik esnek büyür */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* Footer Genel Ayarları */
-/* Genel Ayarlar */
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-}
-
-/* Sayfanın İçeriği */
-main {
-    flex: 1; /* Footer'ı aşağı itmek için ana içerik esnek büyür */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,53 +187,53 @@ main {
 }
 
 /* 📌 Responsive Tasarım */
-    /* Logo Ayarları */
-   /* Mobilde Logo ve Menü Ortalanması */
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
+    /* Menü ve Logo Düzeni */
     .menu-container {
-        flex-direction: column; /* Menü ve logo dikey sıraya yerleşecek */
-        justify-content: flex-start; /* Menü ve logo yukarıya hizalanacak */
-        align-items: center; /* Hem yatayda hem dikeyde ortalama */
+        flex-direction: column;
+        align-items: center;
         padding: 10px;
     }
 
     .logo {
-        margin-top: 1px; /* Burada logonun konumunu yukarıda ayarlayabilirsiniz */
+        margin-top: 1px;
     }
 
     .logo img {
-        height: 60px; /* Mobilde logo boyutunu küçült */
+        height: 60px;
     }
 
- /* Menü Toggle Butonu (Mobil) */
-.menu-toggle {
- display: flex;
- align-items: center; /* Dikeyde hizalama */
- justify-content: flex-start; /* Solda hizalama */
- font-size: 20px; /* MENÜ yazısının varsayılan boyutu */
- color: white;
- cursor: pointer;
- width: 100%;
- padding: 15px;
- gap: 10px; /* Simge ve yazı arasına boşluk ekler */
-}
+    /* Menü Toggle Butonu (Mobilde) */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        padding: 15px;
+        gap: 10px;
+    }
 
-    /* Mobilde Menü Düzeni */
+    /* Menü Düzeni (Mobilde) */
     .menu {
         flex-direction: column;
+        display: none;
         text-align: center;
         gap: 10px;
-        display: none;
     }
 
     .menu.show {
         display: flex;
     }
 
-    /* Menü elemanlarını ortalamak */
+    /* Menü Elemanları */
     .menu li {
         margin: 10px 0;
     }
+
+    /* Harita Düzeni (Mobilde) */
     .map-container {
         display: flex;
         justify-content: center;
@@ -257,13 +241,12 @@ main {
         width: 100%;
         margin-top: 1.5rem;
     }
-    
+
     .map {
-        width: 90%;  /* Ekrana tam oturması için */
+        width: 90%;
         max-width: 600px;
         height: 400px;
-        border: 2px solid #9c0505; /* Kenarlık ekleyerek daha düzenli görünüm */
-        border-radius: 10px; /* Hafif köşe yuvarlatma */
+        border: 2px solid #9c0505;
+        border-radius: 10px;
     }
-    
 }
